@@ -1,7 +1,9 @@
-const root = document.createElement('div');
+import {createRoot} from 'react-dom/client';
+import App from './App';
 
-root.innerText = 'Hello there!';
+const rootNode = document.createElement('div');
+document.body.appendChild(rootNode);
 
-document.body.appendChild(root);
+const root = createRoot(rootNode);
 
-console.log('Hello client');
+root.render(<App/>);

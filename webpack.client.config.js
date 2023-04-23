@@ -8,4 +8,24 @@ module.exports = {
         filename: 'bundle.js',
     },
     plugins: [new HtmlWebpackPlugin()],
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/i,
+                exclude: /node_modules/,
+                resolve: {
+                    extensions: ['.js', '.jsx']
+                },
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            ['@babel/preset-react', { runtime: 'automatic' }]
+                        ]
+                    }
+                }
+            },
+        ]
+    },
 };
